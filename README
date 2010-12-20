@@ -1,0 +1,64 @@
+== Basic Rails starter project
+
+Support for
+
+MySql
+Devise - user management
+Redis
+Common Utils
+Country Select
+Blue Print CSS Frame work
+Moonshine - for an easy deploy
+
+== MySql
+
+Just run rake db:migrate
+
+== Devise
+
+https://github.com/plataformatec/devise
+
+Supports basic user login/logout stuff - see their site for details.  To muck with the views edit things in the views/devise directory.
+
+== Redis
+
+First, install Redis:  
+
+	fname=redis-2.0.0-rc2
+	wget http://redis.googlecode.com/files/$fname.tar.gz
+	tar -zxf $fname.tar.gz
+	mv $fname redis
+	cd redis
+	make
+	sudo cp redis-server /usr/bin
+	sudo cp redis.conf /etc/ 
+	sudo chmod 755 /usr/bin/redis-server
+
+Second - uncomment and configure the Redis code in config/initializes/constants.rb
+
+Third - configure the .conf files in config/redis
+
+Fourth - start up redis and point it at your dev conf:  cd /usr/bin && sudo ./redis-server ~/dev/YOURAPP/config/redis/development.conf
+
+== Common Utils
+
+See it's README
+
+== Country Select
+
+See it's README
+
+== Blue Print 
+
+Already included - read their site for info on how to use blue print
+
+== Moonshine
+
+Edit the obvious stuff in config/moonshine.yml
+
+Then mostly follow this blog excellent blog post by Josh:  http://blog.railsmachine.com/articles/2010/02/17/smooth-devoperations-deploying-rails-3-with-moonshine/comments#comment-9585
+
+== Contributing
+
+PLEASE fork and put in pull requests if you find a bug or want to add stuff
+

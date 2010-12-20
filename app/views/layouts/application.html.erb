@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= APP_NAME %></title>
+  <link rel="stylesheet" href="/stylesheets/blueprint/screen.css" type="text/css" media="screen, projection">
+  <link rel="stylesheet" href="/stylesheets/blueprint/print.css" type="text/css" media="print">
+  <!--[if lt IE 8]>
+    <link rel="stylesheet" href="/stylesheets/blueprint/ie.css" type="text/css" media="screen, projection">
+  <![endif]-->
+  <%= stylesheet_link_tag 'application' %>
+  <%= stylesheet_link_tag 'scaffold' %>
+  <%= javascript_include_tag :defaults %>
+  <%= csrf_meta_tag %>
+  <%= yield :head %>
+</head>
+<body>
+
+  <div class="container">
+    <div class="span-24 last">
+      <ul class="hmenu">
+        <li><%= link_to "Home", root_url %></li>
+        <% if user_signed_in? %>
+        <% else %>
+        <% end %>
+        <li>| Account:</li>
+        <%= render 'devise/menu/registration_items' %>
+        <%= render 'devise/menu/login_items' %>
+      </ul>
+      <hr/>
+      <% ["notice", "alert"].each do |fn|; klass = eval(fn) %>
+        <% if klass %>
+          <p class="<%=fn%>"><%= klass %></p>
+        <% end %>
+      <% end %>
+    </div>
+
+    <% if content_for?(:top_nav) %>
+      <div class="span-24">
+        <%= yield(:top_nav) %>
+      </div>
+    <% end %>
+
+    <% if content_for?(:left_nav) %>
+      <div class="span-4">
+        <%= yield(:left_nav) %>
+      </div>
+    <% end %>
+    <div class="span-<%= content_for?(:left_nav) ? '20' : '24' %> last">
+      <% if content_for?(:content) %>
+        <%= yield(:content) %>
+      <% else %>
+        <%= yield %>
+      <% end %>
+    </div>
+
+  </div>
+
+</body>
+</html>

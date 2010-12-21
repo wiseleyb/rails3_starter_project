@@ -9,6 +9,7 @@ Common Utils
 Country Select
 Blue Print CSS Frame work
 Moonshine - for an easy deploy
+Cucumber - for testing
 
 == MySql
 
@@ -57,6 +58,10 @@ Already included - read their site for info on how to use blue print
 Edit the obvious stuff in config/moonshine.yml
 
 Then mostly follow this blog excellent blog post by Josh:  http://blog.railsmachine.com/articles/2010/02/17/smooth-devoperations-deploying-rails-3-with-moonshine/comments#comment-9585
+
+== Cucumber
+
+Basic 1 == 1 test setup... config files created, etc.
 
 == Contributing
 

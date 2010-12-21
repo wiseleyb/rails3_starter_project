@@ -8,7 +8,15 @@ gem 'shadow_puppet'
 
 
 
-
+group :test do
+	gem 'rspec-rails'
+  gem 'cucumber-rails'
+  gem 'cucumber'
+  gem 'rspec-rails'
+  gem 'spork'
+  gem 'launchy'    # So you can do Then show me the page
+	gem 'webrat'
+end
 
 
 # Bundle edge Rails instead:

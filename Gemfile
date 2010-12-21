@@ -5,7 +5,7 @@ gem 'devise'
 gem 'mysql', '2.8.1'
 gem 'capistrano'
 gem 'shadow_puppet'
-
+gem "cancan"
 
 
 group :test do

@@ -11,6 +11,7 @@ Blue Print CSS Frame work
 Moonshine - for an easy deploy
 Cucumber - for testing
 RVM
+CanCan for user roles
 
 == MySql
 
@@ -67,6 +68,10 @@ Basic 1 == 1 test setup... config files created, etc.
 == RVM
 
 Edit the .rvmrc file to create a gem set for your project
+
+== CanCan
+
+See their documentation:  https://github.com/ryanb/cancan
 
 == Contributing
 

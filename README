@@ -10,6 +10,7 @@ Country Select
 Blue Print CSS Frame work
 Moonshine - for an easy deploy
 Cucumber - for testing
+RVM
 
 == MySql
 
@@ -62,6 +63,10 @@ Then mostly follow this blog excellent blog post by Josh:  http://blog.railsmach
 == Cucumber
 
 Basic 1 == 1 test setup... config files created, etc.
+
+== RVM
+
+Edit the .rvmrc file to create a gem set for your project
 
 == Contributing
 

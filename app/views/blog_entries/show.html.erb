@@ -1,0 +1,17 @@
+<% content_for :top_nav do %>
+	<h1><%=link_to "Blogs", blogs_path %> : <%= link_to @blog.title, blog_path(@blog) %></h1>
+<% end %>
+
+<%= render :partial => "/blog_entries/blog_entry", :object => @blog_entry %>
+
+<a name="comments"></a>
+
+<%= render :partial => "/blog_comments/blog_comment", :collection => @blog_entry.blog_comments %>
+
+<%= render :partial => "/blog_comments/form" %>
+
+<% if editor?(@blog_entry)%>
+	<%= link_to 'Edit', edit_blog_blog_entry_path(@blog, @blog_entry) %> |
+	<%= link_to 'Destroy Blog', blog_blog_entry_path(@blog, @blog_entry), :confirm => 'Are you sure?', :method => :delete %> |
+<% end %>	
+<%= link_to 'Back', blog_blog_entries_path(@blog) %>

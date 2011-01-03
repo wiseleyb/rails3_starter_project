@@ -1,0 +1,15 @@
+# Create your buckets on Amazon's site
+# You can get your key and access key from Amazon's site as well.
+
+development:
+  bucket: bucket-dev
+  access_key_id: asdfbasdfbasd
+  secret_access_key: woejfjwoefowejfwjoe
+test:
+  bucket: bucket-test
+  access_key_id: asdfbasdfbasd
+  secret_access_key: woejfjwoefowejfwjoe
+production:
+  bucket: bucket
+  access_key_id: asdfbasdfbasd
+  secret_access_key: woejfjwoefowejfwjoe

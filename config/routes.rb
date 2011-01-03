@@ -1,7 +1,24 @@
 OpenRentals::Application.routes.draw do
 
   
+  resources :blogs do 
+    resources :blog_entries do
+      resources :blog_comments
+    end
+  end
+
+  resources :forums do
+    resources :topics do
+      resources :posts 
+    end
+  end
+
   devise_for :users
+  resources :users do 
+    member do
+      post 'update_image'
+    end
+  end
 
   root :to => "index#index"
   

@@ -1,0 +1,8 @@
+<% content_for :top_nav do %>
+	<h1><%=link_to "Forums", forums_path %> : <%= link_to @forum.name, forum_path(@forum) %> : <%= @topic.title %> </h1>
+<% end %>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', forum_topic_path(@forum, @topic) %> |
+<%= link_to 'Back', forum_topics_path(@forum) %>

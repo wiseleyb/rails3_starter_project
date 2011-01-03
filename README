@@ -1,3 +1,5 @@
+== VERY MUCH A WORK IN PROGRESS CURRENTLY
+
 == Basic Rails starter project
 
 Support for
@@ -12,6 +14,12 @@ Moonshine - for an easy deploy
 Cucumber - for testing
 RVM
 CanCan for user roles
+Paperclip for image uploads
+S3 for image storage
+Forums/Topics/Posts
+Blogs/BlogEntries/BlogComments
+TinyMCE for editing https://github.com/kete/tiny_mce
+Atom/RSS support for Forums/Topics and Blogs/BlogEntries
 
 == MySql
 
@@ -73,7 +81,33 @@ Edit the .rvmrc file to create a gem set for your project
 
 See their documentation:  https://github.com/ryanb/cancan
 
+== Paperclip
+
+Users are setup to use Paperclip and Amazon's S3 storage for their avatars.  The sizes are defined in the User model - you'll probably want to cut down on options.
+
+Default images are in public/images/avatars
+
+Register/Login and click the "Show" link in the top nav to see the images.
+
+Edit your registration to change images.  You'll need to fill in your info in config/s3.yml first
+
+See their documentation:  https://github.com/thoughtbot/paperclip
+
+== Amazon S3
+
+Edit your information in config/s3.yml  
+
+It's a good idea to manually create your buckets on Amazon's site (it throws wonky errors if they're not available)
+
 == Contributing
 
 PLEASE fork and put in pull requests if you find a bug or want to add stuff
+
+== Credits
+
+Thanks to Josh at RailsMachine for the awesome deploy help: http://blog.railsmachine.com/articles/2010/02/17/smooth-devoperations-deploying-rails-3-with-moonshine/comments#comment-9585
+Thanks to http://doganberktas.com/2010/09/14/amazon-s3-and-paperclip-rails-3/ for the paper-clip/s3 sample code
+Thanks to http://icones.pro/en/mushroom-spring-png-image.html for the default user avatars
+Thanks to Redis - one of the best open source projects I've ever seen.  They're insane!
+Thanks to all the other open source in this starter project.
 

@@ -12,3 +12,5 @@ APP_NAME = "App Name"
 #   BASE_URL = "http://yoururl.com"
 # end
 
+# Paperclip.options[:command_path] = "/usr/local/bin" 
+

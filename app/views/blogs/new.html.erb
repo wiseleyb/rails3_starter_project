@@ -1,0 +1,7 @@
+<% content_for :top_nav do %>
+	<h1><%=link_to "Blogs", blogs_path %> : New Blog Entry</h1>
+<% end %>
+
+<%= render 'form' %>
+
+<%= link_to 'Back', blogs_path %>

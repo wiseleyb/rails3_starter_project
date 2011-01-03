@@ -1,0 +1,8 @@
+<% content_for :top_nav do %>
+	<h1><%=link_to "Blogs", blogs_path %> : <%= link_to @blog.title, blog_path(@blog) %> : <%= link_to @blog_entry.title, blog_blog_entry_path(@blog, @blog_entry)%> : Editing Comment</h1>
+<% end %>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', blog_blog_entry_path(@blog, @blog_entry, :anchor => "comment#{@blog_comment.id}") %> |
+<%= link_to 'Back', blog_blog_entry_path(@blog, @blog_entry) %>

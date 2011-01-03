@@ -6,7 +6,9 @@ gem 'mysql', '2.8.1'
 gem 'capistrano'
 gem 'shadow_puppet'
 gem "cancan"
-
+gem "paperclip", "~> 2.3"
+gem 'aws-s3'
+gem 'tiny_mce'
 
 group :test do
 	gem 'rspec-rails'

@@ -1,0 +1,7 @@
+<% content_for :top_nav do %>
+	<h1><%=link_to "Forums", forums_path %> : New</h1>
+<% end %>
+
+<%= render 'form' %>
+
+<%= link_to 'Back', forums_path %>

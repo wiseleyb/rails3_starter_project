@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @user.name %>
+</p>
+
+<p>
+  <b>Login:</b>
+  <%= @user.login %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @user.email %>
+</p>
+
+<p>
+	<% [:t128, :t96, :t64, :t48, :t32, :t16].each do |s| %>
+		<%=image_tag @user.avatar.url(s) %> &nbsp;&nbsp;
+	<% end %>
+</p>
+
+<% form_for :user, @user, :url => {:action => "update_image"}, :html => { :multipart => true } do |form| %>
+  <%= form.file_field :avatar %> <%=submit_tag %>
+<% end %>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

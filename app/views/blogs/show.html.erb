@@ -1,0 +1,23 @@
+<% content_for :head do %>
+	<%= auto_discovery_link_tag(:atom, :controller => 'blogs', :action => 'show') %>
+<% end %>
+
+<% content_for :top_nav do %>
+	<h1><%=link_to "Blogs", blogs_path %> : <%= @blog.title %> <%= link_to image_tag("forums/feed-icon-14x14.png"), blog_path(@blog, :format => :atom)%> </h1>
+<% end %>
+
+<p>
+  <%= @blog.description.html_safe %>
+</p>
+
+<hr/>
+
+<%= render :partial => "/blog_entries/blog_entry", :collection => @blog.blog_entries %>
+
+
+<% if editor?(@blog) %>
+	<%= link_to 'New Blog Entry', new_blog_blog_entry_path(@blog) %> |
+	<%= link_to 'Edit', edit_blog_path(@blog) %> |
+	<%= link_to 'Destroy Blog', blog_path(@blog), :confirm => 'Are you sure?', :method => :delete %> |
+<% end %>
+<%= link_to 'Back', blogs_path %>

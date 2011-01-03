@@ -1,0 +1,39 @@
+<% content_for :head do %>
+	<%= auto_discovery_link_tag(:atom, :controller => 'blogs', :action => 'index') %>
+<% end %>
+
+<% content_for :top_nav do %>
+	<h1><%=link_to "Blogs", blogs_path %> <%= link_to image_tag("forums/feed-icon-14x14.png"), blogs_path(:format => :atom)%></h1>
+<% end %>
+
+<table>
+	
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+    <th>User</th>
+  </tr>
+
+	<% @blogs.each do |blog| %>
+	  <tr>
+	    <td><%= link_to blog.title, blog_path(blog) %></td>
+	    <td><%= blog.description.html_safe %></td>
+			<td><%= link_to blog.user.name, user_path(blog.user) %></td>
+	  </tr>
+	<% end %>
+
+</table>
+
+<br />
+
+<% if user_signed_in? %>
+	<hr/>
+	<p>TODO: This should be moved to some kind of user dashboard</p>
+	<% if current_user.blog %>
+		<%= link_to 'Edit Blog', edit_blog_path(current_user.blog)%> | 
+		<%= link_to 'New Blog Post', new_blog_blog_entry_path(current_user.blog )%>
+	<% else %>
+		<%= link_to 'New Blog', new_blog_path %>
+	<% end %>
+	
+<% end %>

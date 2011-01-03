@@ -1,0 +1,8 @@
+<p>
+	<%= link_to topic_preview.title, forum_topic_path(@forum, topic_preview) %> by <%= topic_preview.user.name %> on <%=topic_preview.created_at.to_ymd %>
+	<br/>
+	Posts in Topic: <%=topic_preview.posts.size %>
+	<br/>
+	<%= topic_preview.body.html_safe %>
+</p>
+<hr/>

@@ -1,0 +1,8 @@
+<% content_for :top_nav do %>
+	<h1><%=link_to "Blogs", blogs_path %> : Editing <%=@blog.title%></h1>
+<% end %>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', @blog %> |
+<%= link_to 'Back', blogs_path %>

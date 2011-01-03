@@ -1,0 +1,14 @@
+<% content_for :top_nav do %>
+	<h1><%=link_to "Forums", forums_path %> : <%= link_to @forum.name, forum_path(@forum) %> : <%= link_to @topic.title, forum_topic_path(@forum, @topic) %> </h1>
+<% end %>
+
+<p>
+  <b>Body:</b>
+  <%= @post.body.html_safe %>
+</p>
+
+<% if editor?(@post) %>
+	<%= link_to 'Edit', edit_forum_topic_post_path(@forum, @topic, @post) %> |
+	<%= link_to 'Destroy', forum_topic_post_path(@forum, @topic, @post), :confirm => 'Are you sure?', :method => :delete %> |
+<% end %>
+<%= link_to 'Back', forum_topic_posts_path(@forum, @topic) %>

@@ -1,0 +1,31 @@
+<% content_for :head do %>
+	<%= auto_discovery_link_tag(:atom, :controller => 'forums', :action => 'show') %>
+<% end %>
+
+<% content_for :top_nav do %>
+	<h1><%=link_to "Forums", forums_path %> : <%=@forum.name %></h1>
+<% end %>
+
+<p>
+  <%= @forum.description.html_safe %><br/>
+	<%= @forum.user.name %> on <%=@forum.created_at.to_ymd %> 
+</p>
+
+<hr/>
+
+<h2>Topics <%= link_to image_tag("forums/feed-icon-14x14.png"), forum_path(@forum, :format => :atom)%></h2>
+
+<%= render :partial => "/topics/topic_preview", :collection => @forum.topics %>
+
+
+<% if user_signed_in? %>
+	<p><%=link_to "New Topic", new_forum_topic_path(@forum) %></p>
+<% end %>
+
+<hr/>
+
+<% if editor?(@forum) %>
+	<%= link_to 'Edit Forum', edit_forum_path(@forum) %> |
+	<%= link_to 'Destroy Forum', forum_path(@forum), :confirm => 'Are you sure?', :method => :delete %> |
+<% end %>
+<%= link_to 'Back to Forums', forums_path %>

@@ -1,0 +1,23 @@
+<a name="comment<%=blog_comment.id%>"></a>
+<p>
+	
+	<% if blog_comment.user %>
+		<%=link_to blog_comment.name, user_path(blog_comment.user)%>
+	<% else %>
+  	<%= blog_comment.name %> 
+	<% end %>
+	<% unless blog_comment.url.blank? %>
+	  <%= link_to blog_comment.url %>
+	<% end %>
+	on <%= link_to blog_comment.created_at.to_ymdhm, blog_blog_entry_path(@blog, @blog_entry, :anchor => "comment#{blog_comment.id}") %>
+	<% if editor?(blog_comment)%>
+		| <%= link_to "Edit", edit_blog_blog_entry_blog_comment_path(@blog, @blog_entry, blog_comment) %>
+		| <%= link_to "Delete", blog_blog_entry_blog_comment_path(@blog, @blog_entry, blog_comment), :confirm => "Are you sure?", :method => :delete %>
+	<% end %>
+</p>
+
+<p>
+  <%= blog_comment.body.html_safe %>
+</p>
+
+<hr/>

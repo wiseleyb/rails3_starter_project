@@ -1,0 +1,8 @@
+<h2><%= link_to blog_entry.title, blog_blog_entry_path(@blog, blog_entry) %></h2>
+<p>
+  <%= blog_entry.body.html_safe %>
+</p>
+<p>
+	<%=link_to "Comments (#{blog_entry.blog_comments.size})", blog_blog_entry_path(@blog, blog_entry, :anchor => "comments")%>
+</p>
+<hr/>
